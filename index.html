@@ -9,32 +9,78 @@
   <meta name="author" content="Chloe Taylor">
 
 
-  <title>Matching Pairs</title>
+  <title>ENERGY</title>
 
-  <!-- <link href="style.css" rel="stylesheet">
-  <link href="index.css" rel="stylesheet"> -->
-
+  <link href="style.css" rel="stylesheet">
 
 
 </head>
 
 <body>
-<div class="titlescreen">
 
-  <main id="titlewrapper">
 
-    <h1>Energy game</h1>
 
-    <!-- <div class="playbuttonarea">
+<div class="background">
+    <header id="header" class="displaynone">
+        <div>
+            <span class="header-button" id="mutebutton"></span>
+            <span class="header-button" id="openinstructionsbutton"><img class="buttonsmall" src="assets/buttons/howtoplay.png"></span>
+        </div>  
+    </header>
 
-      <a href="javascript:delay('URL')" class="playbutton"></a>
-      
+
    
-    </div> -->
+      
+      <div class="inframearea" id="inframearea">
 
-</main>
-</div>
-<!-- <div id="musicstop"></div>
-<script src="index.js"></script> -->
+        <main class="displaynone">
 
-</body>
+    
+        <!-- GAME  -->
+        <div id="turbinewrapper">
+            <div class="turbine turbinebefore item"></div>
+        </div>
+        <div id="lightbulbwrapper">
+            <div class="lightbulb lightbulbbefore item"></div>
+        </div>
+
+            <div class="gamegrid1 item">
+                <div id="tile_l1_r1_c1" class="row1column1 tile tile_l1"></div>
+                <div id="tile_l1_r1_c2" class="row1column2 tile tile_l1"></div>
+                <div id="tile_l1_r2_c1" class="row2column1 tile tile_l1"></div>
+                <div id="tile_l1_r2_c2" class="row2column2 tile tile_l1"></div>
+            </div>
+        </main>
+
+
+
+
+        <!-- titlescreen  -->
+
+        <div class="titlescreen item">
+            <span id="titleplaybutton" class="item"></span>
+        </div>
+
+        <!-- instructions screen -->    
+    
+        <div class="instructionsimage item displaynone">
+            <img id="closeinitialinstructions" src="assets/buttons/close.png" >
+        </div>
+
+
+    
+       <!-- welldone screen -->
+    
+       <section id="continuebuttons">
+            <img class="displaynone continuebutton item" id="continuel2" class="playbutton" src="assets/buttons/play.png" >
+      </section>
+        
+      </div>
+      
+    </div>
+    
+    
+    <script src="app.js"></script>
+    <script src="music.js"></script>
+    
+    </body>

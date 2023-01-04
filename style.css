@@ -1,0 +1,221 @@
+.displaynone {
+    display: none;
+}
+
+main {
+    z-index: 3000;
+}
+
+.titlescreen {
+    z-index: 15000;
+    position:  absolute;
+    background-image: url("assets/screens/title.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 400px;
+    width: 600px;
+    top: 300px;
+    left: 400px;
+}
+
+#titleplaybutton {
+    width: 120px;
+    height: 120px;
+    background-image: url("assets/buttons/play.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: 300px;
+    left: 300px;
+}
+
+.playbutton {
+    width: 120px;
+    height: 120px;
+    background-image: url("assets/buttons/play.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+@media screen and (min-width: 1000px) {
+    .playbutton  {
+       width: 120px;
+       height: 120px;
+    }
+
+}
+
+#welldone {
+    height: 90vh;
+    width: 100vw;
+}
+
+.header-button {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    z-index: 3000;
+    cursor: pointer;
+}
+
+.buttonsmall {
+    height: 50px;
+    width: 50px;
+}
+
+#continuebuttons{
+    position: absolute;
+    top: 500px;
+    left: 400px;
+}
+
+.continuebutton {
+    height: 100px;
+    width: 100px;
+
+}
+
+@media screen and (min-width: 1000px){
+    .header-button {
+        height: 80px;
+        width: 80px;
+    }
+}
+
+#mutebutton {
+    top: 35px;
+    left: 20px;
+}
+
+#openinstructionsbutton {
+    top: 35px;
+    left: 120px;
+}
+
+/* .welldoneimage {
+    background-image: url("assets/screens/welldone.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+} */
+
+.item {
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+.itemnoclick {
+    pointer-events: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.background {
+    position: relative;
+    background: orange;  /* fallback for old browsers */
+    /* background: -webkit-linear-gradient(to bottom, #12162f, #222e59);  Chrome 10-25, Safari 5.1-6 */
+    /* background: linear-gradient(to bottom, #12162f, #222e59); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    height: 100vh;
+    overflow: hidden;
+}
+
+.inframearea {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 800px;
+    height: 600px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: center center;
+    }
+
+.gamegrid1 {
+    height: 240px;
+    width: 240px;
+    top: 300px;
+    left: 400px;
+    display: grid;
+    grid-template-columns: 120px 120px;
+    grid-template-rows: 120px 120px;
+}
+
+.tile {
+    height: 120px;
+    width: 120px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.row1column1 {
+    background-image: url("assets/tiles/tile-corner.png");
+    left: 60px;
+    top: 60px;
+}
+
+.row1column2 {
+    background-image: url("assets/tiles/tile-corner.png");
+    left: 180px;
+    top:60px;
+}
+
+.row2column1 {
+    background-image: url("assets/tiles/tile-straight.png");
+    left: 60px;
+    top: 180px;
+}
+
+.row2column2 {
+    background-image: url("assets/tiles/tile-corner.png");
+    left: 180px;
+    top:180px;
+}
+
+.rotate90 {
+    transform: rotate(90deg);            
+    transition: transform 900ms ease;
+}
+
+.turbine {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 200px;
+    width: 300px;
+    top: 300px;
+    left: 200px;
+}
+
+.turbineglow {
+    background-image: url("assets/energyitems/turbine-glow.png");
+
+}
+
+.turbinebefore {
+    background-image: url("assets/energyitems/turbine.png");
+}
+
+.lightbulb {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100px;
+    width: 200px;
+    top: 240px;
+    left: 570px;
+}
+
+.lightbulbglow {
+    background-image: url("assets/energyitems/lightbulb-glow.png");
+
+}
+
+.lightbulbbefore {
+    background-image: url("assets/energyitems/lightbulb.png");
+}
