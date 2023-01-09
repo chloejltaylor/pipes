@@ -1,15 +1,98 @@
-.displaynone {
-    display: none;
+body {
+    margin: 0;
+    touch-action: manipulation;
+   
 }
 
 main {
     z-index: 3000;
 }
 
+.start, .end {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 80px;
+    width: 120px;
+    position: absolute;
+}
+
+.start {
+    background-image: url("assets/energyitems/start.png");
+}
+
+.end {
+    background-image: url("assets/energyitems/end.png");
+}
+
+.start_pos1_1 {
+    top: 310px;
+    left: 180px;
+}
+
+.end_pos1_1 {
+    top: 310px;
+    left: 500px;
+}
+
+.start_pos2_1 {
+    top: 370px;
+    left: 120px;
+}
+
+.end_pos2_1 {
+    top: 370px;
+    left: 580px;
+}
+
+.start_pos3_1 {
+    top: 180px;
+    left: 40px;
+}
+
+.end_pos3_1 {
+    top: 180px;
+    left: 640px;
+}
+
+
+
 .titlescreen {
     z-index: 15000;
     position:  absolute;
     background-image: url("assets/screens/title.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 400px;
+    width: 600px;
+    top: 300px;
+    left: 400px;
+}
+
+#videos {
+    position: absolute;
+    height: 400px;
+    width: 600px;
+}
+
+.welldonescreen {
+    z-index: 15000;
+    position:  absolute;
+    background-image: url("assets/screens/welldone.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 400px;
+    width: 600px;
+    top: 300px;
+    left: 400px;
+}
+
+.instructionsimage {
+    z-index: 10000;
+    position:  absolute;
+    background-image: url("assets/screens/instructions.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -27,6 +110,23 @@ main {
     background-repeat: no-repeat;
     top: 300px;
     left: 300px;
+}
+
+#startagainbutton {
+    width: 120px;
+    height: 120px;
+    background-image: url("assets/buttons/play.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: 250px;
+    left: 300px;
+}
+
+#closeinstructionsbutton {
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    left: 520px;
 }
 
 .playbutton {
@@ -89,7 +189,7 @@ main {
 
 #openinstructionsbutton {
     top: 35px;
-    left: 120px;
+    left: 90px;
 }
 
 /* .welldoneimage {
@@ -135,6 +235,14 @@ main {
     transform-origin: center center;
     }
 
+#game1a {
+    border: 5px solid red;
+}
+
+#game1b {
+    border: 5px solid green;
+}
+
 .gamegrid1 {
     height: 240px;
     width: 240px;
@@ -145,36 +253,39 @@ main {
     grid-template-rows: 120px 120px;
 }
 
+.gamegrid2 {
+    height: 360px;
+    width: 360px;
+    top: 300px;
+    left: 400px;
+    display: grid;
+    grid-template-columns: 120px 120px 120px;
+    grid-template-rows: 120px 120px 120px;
+}
+
+.gamegrid3 {
+    height: 480px;
+    width: 480px;
+    top: 300px;
+    left: 400px;
+    display: grid;
+    grid-template-columns: 120px 120px 120px 120px;
+    grid-template-rows: 120px 120px 120px 120px;
+}
+
 .tile {
-    height: 120px;
-    width: 120px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 
-.row1column1 {
+.tilecorner {
     background-image: url("assets/tiles/tile-corner.png");
-    left: 60px;
-    top: 60px;
 }
 
-.row1column2 {
-    background-image: url("assets/tiles/tile-corner.png");
-    left: 180px;
-    top:60px;
-}
-
-.row2column1 {
+.tilestraight {
     background-image: url("assets/tiles/tile-straight.png");
-    left: 60px;
-    top: 180px;
-}
 
-.row2column2 {
-    background-image: url("assets/tiles/tile-corner.png");
-    left: 180px;
-    top:180px;
 }
 
 .rotate90 {
@@ -186,10 +297,10 @@ main {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    height: 200px;
-    width: 300px;
-    top: 300px;
-    left: 200px;
+    height: 150px;
+    width: 100px;
+    top: 350px;
+    left: 50px;
 }
 
 .turbineglow {
@@ -207,8 +318,8 @@ main {
     background-position: center;
     height: 100px;
     width: 200px;
-    top: 240px;
-    left: 570px;
+    top: 360px;
+    left: 770px;
 }
 
 .lightbulbglow {
@@ -219,3 +330,18 @@ main {
 .lightbulbbefore {
     background-image: url("assets/energyitems/lightbulb.png");
 }
+
+
+
+.welldonevideo {
+    height: 400px;
+    width: 600px;
+    top: 300px;
+    left: 400px;
+}
+
+
+.displaynone {
+    display: none;
+}
+

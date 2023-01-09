@@ -31,7 +31,7 @@
 
    
       
-      <div class="inframearea" id="inframearea">
+    <div class="inframearea" id="inframearea">
 
         <main class="displaynone">
 
@@ -43,13 +43,54 @@
         <div id="lightbulbwrapper">
             <div class="lightbulb lightbulbbefore item"></div>
         </div>
+        <div id="startposwrapper">
+            <div class="start start_pos1_1"></div>
+            <div class="end end_pos1_1"></div>
+        </div>
+                <div id="game1a" class="gamegrid1 item displaynone">
+                    <div class="tile tile_l1 tilecorner"></div>
+                    <div class="tile tile_l1 tilecorner"></div>
+                    <div class="tile tile_l1 tilecorner"></div>
+                    <div class="tile tile_l1 tilecorner"></div>
+                </div>
+                <div id="game1b" class="gamegrid1 item displaynone">
+                    <div class="tile tile_l1 tilecorner"></div>
+                    <div class="tile tile_l1 tilecorner"></div>
+                    <div class="tile tile_l1 tilestraight"></div>
+                    <div class="tile tile_l1 tilestraight"></div>
+                </div>
 
-            <div class="gamegrid1 item">
-                <div id="tile_l1_r1_c1" class="row1column1 tile tile_l1"></div>
-                <div id="tile_l1_r1_c2" class="row1column2 tile tile_l1"></div>
-                <div id="tile_l1_r2_c1" class="row2column1 tile tile_l1"></div>
-                <div id="tile_l1_r2_c2" class="row2column2 tile tile_l1"></div>
-            </div>
+                <div id="game2a" class="gamegrid2 item displaynone">
+                    <div class="tile tile_l2 tilecorner"></div>
+                    <div class="tile tile_l2 tilestraight"></div>
+                    <div class="tile tile_l2 tilecorner"></div>
+                    <div class="tile tile_l2 tilecorner"></div>
+                    <div class="tile tile_l2 tilecorner"></div>
+                    <div class="tile tile_l2 tilestraight"></div>
+                    <div class="tile tile_l2 tilestraight"></div>
+                    <div class="tile tile_l2 tilecorner"></div>
+                    <div class="tile tile_l2 tilecorner"></div>
+                </div>
+
+                <div id="game3a" class="gamegrid3 item displaynone">
+                    <div class="tile tile_l3 tilecorner"></div>
+                    <div class="tile tile_l3 tilestraight"></div>
+                    <div class="tile tile_l3 tilecorner"></div>
+                    <div class="tile tile_l3 tilestraight"></div>
+                    <div class="tile tile_l3 tilecorner"></div>
+                    <div class="tile tile_l3 tilestraight"></div>
+                    <div class="tile tile_l3 tilestraight"></div>
+                    <div class="tile tile_l3 tilecorner"></div>
+                    <div class="tile tile_l3 tilecorner"></div>
+                    <div class="tile tile_l3 tilestraight"></div>
+                    <div class="tile tile_l3 tilecorner"></div>
+                    <div class="tile tile_l3 tilestraight"></div>
+                    <div class="tile tile_l3 tilecorner"></div>
+                    <div class="tile tile_l3 tilestraight"></div>
+                    <div class="tile tile_l3 tilestraight"></div>
+                    <div class="tile tile_l3 tilecorner"></div>
+                </div>
+                
         </main>
 
 
@@ -63,17 +104,26 @@
 
         <!-- instructions screen -->    
     
-        <div class="instructionsimage item displaynone">
-            <img id="closeinitialinstructions" src="assets/buttons/close.png" >
+        <div class="instructionsimage displaynone item">
+            <img id="closeinstructionsbutton" src="assets/buttons/close.png" >
         </div>
 
 
     
-       <!-- welldone screen -->
+       <!-- welldone screens -->
+
+       <section class="displaynone" id="videos">
+
+       </section>
     
        <section id="continuebuttons">
             <img class="displaynone continuebutton item" id="continuel2" class="playbutton" src="assets/buttons/play.png" >
-      </section>
+            <img class="displaynone continuebutton item" id="continuel3" class="playbutton" src="assets/buttons/play.png" >
+       </section>
+
+       <div class="welldonescreen displaynone item">
+            <img id="startagainbutton" class="item" src="assets/buttons/play.png" >
+       </div>
         
       </div>
       
@@ -81,6 +131,7 @@
     
     
     <script src="app.js"></script>
+    <script src="rotate.js"></script>
     <script src="music.js"></script>
     
     </body>
