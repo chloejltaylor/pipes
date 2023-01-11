@@ -280,14 +280,14 @@ function testgamecompletel3(){
 }
 
 function gamewin(level){
-
+  music.pause() 
 
   if(level=="level1a" || level=="level1b"){
     gameobjectsactive()
   // Set timer for appearance of level 2 button 
   setTimeout(() => {
     appear(continuel2)
-
+    playmusic()
   }, 4000);
   }
 
@@ -296,13 +296,15 @@ function gamewin(level){
   // Set timer for appearance of level 2 button 
   setTimeout(() => {
     appear(continuel3)
-
+    playmusic()
   }, 4000);
   }
   
   appear(video)
-  video.innerHTML = '<video playsinline class="welldonevideo item" autoplay>  <source src="assets/animations/test.mp4" type="video/mp4"></video>'
-
+  video.innerHTML = '<video preload="auto" id="video" playsinline class="welldonevideo item" autoplay>  <source src="assets/animations/test.mp4" type="video/mp4"></video>'
+  
+  let vid = document.getElementById('video');
+  vid.muted = "muted";
   playSound(win)
 } 
 
