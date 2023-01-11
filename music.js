@@ -1,6 +1,7 @@
-const music = new Audio("assets/sounds/music.mp3")
+// const music = new Audio("assets/sounds/music.mp3")
+const music = new Audio("assets/sounds/music.wav")
 
-music.volume = 0.01;
+music.volume = 0.1;
 let ismuted = false
 
 const mutebutton = document.querySelector("#mutebutton")

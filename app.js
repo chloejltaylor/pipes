@@ -53,6 +53,7 @@ let titleplaybutton = document.getElementById("titleplaybutton")
     game1div = gamegrid1[game1Selector]
     game2div = gamegrid2[game2Selector]
     game3div = gamegrid3[game3Selector]
+    
     video = document.getElementById("videos")
     start = document.querySelector(".start")
     end = document.querySelector(".end")
@@ -71,24 +72,36 @@ function startgame () {
 }
 function restartgame () {
   console.log("restart")
-    // appear(game1div)
-    // disappear(game2div)
-    // disappear(game3div)
-    // disappear(welldonescreen)
-    // disappear(video)
-    // if(game1Selector==1) {
-    //   game1Selector = 0
-    //   game1 = game1list[game1Selector]
-    // }
-    // else {game1Selector++}
-    // if(game2Selector==3) {game2Selector = 0}
-    // else {game2Selector++}
-    // if(game3Selector==3) {game3Selector = 0}
-    // else {game3Selector++}
     
+    disappear(game2div)
+    disappear(game3div)
+    disappear(welldonescreen)
+    disappear(video)
+    if(game1Selector==1) {
+      game1Selector = 0
+    }
+    else {game1Selector++}
+    if(game2Selector==3) {game2Selector = 0}
+    else {game2Selector++}
+    if(game3Selector==3) {game3Selector = 0}
+    else {game3Selector++}
+
+    game1 = game1list[game1Selector]
+    game2 = game2list[game2Selector]
+    game3 = game3list[game3Selector]
+    game1div = gamegrid1[game1Selector]
+    game2div = gamegrid2[game2Selector]
+    game3div = gamegrid3[game3Selector]
+    appear(game1div)
     setuptiles(tilesl1, positions_l1)
-    // setuptiles(tilesl2, positions_l2)
-    // setuptiles(tilesl3, positions_l3)
+    setuptiles(tilesl2, positions_l2)
+    setuptiles(tilesl3, positions_l3)
+
+    gameobjectsidle()
+    start.classList.add("start_pos1_1")
+    start.classList.remove("start_pos3_1")
+    end.classList.add("end_pos1_1")
+    end.classList.remove("end_pos3_1")
 }
 
 titleplaybutton.addEventListener("pointerdown",startgame)
@@ -97,19 +110,24 @@ startagainbutton.addEventListener("pointerdown",restartgame)
   // start level 2
 
   function startlevel2(){
-    for(let i=0; i<gamegrid1.length; i++){
-      disappear(gamegrid1[i])
-    }
-    for(let i=0; i<gamegrid2.length; i++){
-      appear(gamegrid2[i])
-    } 
-    disappear(continuel2)
-    disappear(video)
-    start.classList.remove("start_pos1_1")
-    start.classList.add("start_pos2_1")
-    end.classList.remove("end_pos1_1")
-    end.classList.add("end_pos2_1")
-    gameobjectsidle()
+
+    setTimeout(() => {
+      for(let i=0; i<gamegrid1.length; i++){
+        disappear(gamegrid1[i])
+      }
+      for(let i=0; i<gamegrid2.length; i++){
+        appear(gamegrid2[i])
+      }
+      disappear(continuel2)
+      disappear(video)
+      start.classList.remove("start_pos1_1")
+      start.classList.add("start_pos2_1")
+      end.classList.remove("end_pos1_1")
+      end.classList.add("end_pos2_1")
+      gameobjectsidle()
+    }, 100);
+
+
   }
 
     // start level 3
@@ -174,7 +192,7 @@ let positions_l3 = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
 //set up the tiles to start the game 
 
-function rotate(tile) {
+function rotatesetup(tile) {
   //get a random number between 0 and 3 
   position = Math.floor((Math.random() * 4))
 
@@ -187,7 +205,7 @@ function rotate(tile) {
 
 function setuptiles(tilesarray, positionsarray){
   for(let i=0; i<tilesarray.length; i++){
-    rotate(tilesarray[i])
+    rotatesetup(tilesarray[i])
 
     //keep a record of the position of each tile initially
     positionsarray[i] = position
@@ -300,7 +318,10 @@ function gamewin(level){
   }, 4000);
   }
   
-  appear(video)
+  setTimeout(() => {
+    appear(video)
+  }, 100);
+  
   video.innerHTML = '<video preload="auto" id="video" playsinline class="welldonevideo item" autoplay>  <source src="assets/animations/test.mp4" type="video/mp4"></video>'
   
   let vid = document.getElementById('video');
