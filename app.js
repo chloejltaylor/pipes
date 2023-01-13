@@ -41,12 +41,12 @@ let titleplaybutton = document.getElementById("titleplaybutton")
     gamegrid1 = document.querySelectorAll(".gamegrid1")
     gamegrid2 = document.querySelectorAll(".gamegrid2")
     gamegrid3 = document.querySelectorAll(".gamegrid3")
-    game1list = ["1a","1b"]
-    game2list = ["2a"]
-    game3list = ["3a"]
-    game1Selector = Math.floor((Math.random()) * 2)
-    game2Selector = Math.floor((Math.random()) * 1)
-    game3Selector = Math.floor((Math.random()) * 1)
+    game1list = ["1a","1b", "1c", "1d"]
+    game2list = ["2a", "2b", "2c", "2d"]
+    game3list = ["3a", "3b", "3c", "3d"]
+    game1Selector = Math.floor((Math.random()) * 4)
+    game2Selector = Math.floor((Math.random()) * 4)
+    game3Selector = Math.floor((Math.random()) * 4)
     game1 = game1list[game1Selector]
     game2 = game2list[game2Selector]
     game3 = game3list[game3Selector]
@@ -72,12 +72,12 @@ function startgame () {
 }
 function restartgame () {
   console.log("restart")
-    
+    playmusic()
     disappear(game2div)
     disappear(game3div)
     disappear(welldonescreen)
     disappear(video)
-    if(game1Selector==1) {
+    if(game1Selector==3) {
       game1Selector = 0
     }
     else {game1Selector++}
@@ -98,10 +98,30 @@ function restartgame () {
     setuptiles(tilesl3, positions_l3)
 
     gameobjectsidle()
-    start.classList.add("start_pos1_1")
     start.classList.remove("start_pos3_1")
-    end.classList.add("end_pos1_1")
     end.classList.remove("end_pos3_1")
+    start.classList.remove("start_pos3_2")
+    end.classList.remove("end_pos3_2")
+    start.classList.remove("start_pos3_3")
+    end.classList.remove("end_pos3_3")
+    start.classList.remove("start_pos3_4")
+    end.classList.remove("end_pos3_4")
+    
+    if(game1=="1a"){
+      start.classList.add("start_pos1_2")
+      end.classList.add("end_pos1_2")
+    } else if (game1=="1b"){
+      start.classList.add("start_pos1_1")
+      end.classList.add("end_pos1_1")
+    } else if (game1=="1c"){
+      start.classList.add("start_pos1_2")
+      end.classList.add("end_pos1_1")
+    } else if (game1=="1d"){
+      start.classList.add("start_pos1_2")
+      end.classList.add("end_pos1_1")
+    } 
+
+
 }
 
 titleplaybutton.addEventListener("pointerdown",startgame)
@@ -110,20 +130,33 @@ startagainbutton.addEventListener("pointerdown",restartgame)
   // start level 2
 
   function startlevel2(){
-
     setTimeout(() => {
       for(let i=0; i<gamegrid1.length; i++){
         disappear(gamegrid1[i])
       }
-      for(let i=0; i<gamegrid2.length; i++){
-        appear(gamegrid2[i])
-      }
+      appear(game2div)
       disappear(continuel2)
       disappear(video)
       start.classList.remove("start_pos1_1")
-      start.classList.add("start_pos2_1")
       end.classList.remove("end_pos1_1")
-      end.classList.add("end_pos2_1")
+      start.classList.remove("start_pos1_2")
+      end.classList.remove("end_pos1_2")
+      start.classList.remove("start_pos1_3")
+      end.classList.remove("end_pos1_3")
+      
+      if(game2=="2a"){
+        start.classList.add("start_pos2_3")
+        end.classList.add("end_pos2_3")
+      } else if (game2=="2b"){
+        start.classList.add("start_pos2_2")
+        end.classList.add("end_pos2_2")
+      } else if (game2=="2c"){
+        start.classList.add("start_pos2_1")
+        end.classList.add("end_pos2_1")
+      } else if (game2=="2d"){
+        start.classList.add("start_pos2_1")
+        end.classList.add("end_pos2_3")
+      } 
       gameobjectsidle()
     }, 100);
 
@@ -136,15 +169,29 @@ startagainbutton.addEventListener("pointerdown",restartgame)
     for(let i=0; i<gamegrid2.length; i++){
       disappear(gamegrid2[i])
     }
-    for(let i=0; i<gamegrid3.length; i++){
-      appear(gamegrid3[i])
-    } 
+    appear(game3div)
     disappear(continuel3)
     disappear(video)
     start.classList.remove("start_pos2_1")
-    start.classList.add("start_pos3_1")
     end.classList.remove("end_pos2_1")
-    end.classList.add("end_pos3_1")
+    start.classList.remove("start_pos2_2")
+    end.classList.remove("end_pos2_2")
+    start.classList.remove("start_pos2_3")
+    end.classList.remove("end_pos2_3")
+    
+    if(game3=="3a"){
+      start.classList.add("start_pos3_4")
+      end.classList.add("end_pos3_4")
+    } else if (game3=="3b"){
+      start.classList.add("start_pos3_4")
+      end.classList.add("end_pos3_4")
+    } else if (game3=="3c"){
+      start.classList.add("start_pos3_4")
+      end.classList.add("end_pos3_2")
+    } else if (game3=="3d"){
+      start.classList.add("start_pos3_4")
+      end.classList.add("end_pos3_4")
+    } 
     gameobjectsidle()
   }
 
@@ -222,6 +269,14 @@ function setuptiles(tilesarray, positionsarray){
     if(game1 == "1b" && (positionsarray[6]==0 || positionsarray[6]==2) && (positionsarray[7]==0 || positionsarray[7]==2)){
       console.log("oh no, the game is already finished before it's begun")
       setuptiles(tilesl1, positions_l1)
+    } else
+    if(game1 == "1c" && positions_l1[8]==2 && (positions_l1[9]==0 || positions_l1[9]==2) && positions_l1[10]==0){
+      console.log("oh no, the game is already finished before it's begun")
+      setuptiles(tilesl1, positions_l1)
+    } else
+    if(game1 == "1d" && positions_l1[13]==2 && (positions_l1[14]==0 || positions_l1[14]==2) && positions_l1[15]==0 ){
+      console.log("oh no, the game is already finished before it's begun")
+      setuptiles(tilesl1, positions_l1)
     } else {
       console.log("good to go")
     }
@@ -236,6 +291,20 @@ setuptiles(tilesl1, positions_l1)
 setuptiles(tilesl2, positions_l2)
 setuptiles(tilesl3, positions_l3)
 
+if(game1=="1a"){
+  start.classList.add("start_pos1_2")
+  end.classList.add("end_pos1_2")
+} else if (game1=="1b"){
+  start.classList.add("start_pos1_1")
+  end.classList.add("end_pos1_1")
+} else if (game1=="1c"){
+  start.classList.add("start_pos1_2")
+  end.classList.add("end_pos1_1")
+} else if (game1=="1d"){
+  start.classList.add("start_pos1_2")
+  end.classList.add("end_pos1_1")
+} 
+
 //set up solution
 
 let continuel2 = document.getElementById("continuel2")
@@ -247,7 +316,14 @@ function testgamecompletel1(){
   if(game1 == "1a" && positions_l1[0]==2 && positions_l1[1]==3 && positions_l1[2]==0 && positions_l1[3]==1){
     gamewin("level1a")
   }
-  if(game1 == "1b" && (positions_l1[6]==0 || positions_l1[6]==2) && (positions_l1[7]==0 || positions_l1[7]==2)){
+  if(game1 == "1b" && positions_l1[4]==3 && positions_l1[5]==2 && positions_l1[6]==1 && positions_l1[7]==0){
+    gamewin("level1b")
+  }
+  if(game1 == "1c" && positions_l1[8]==2 && (positions_l1[9]==0 || positions_l1[9]==2) && positions_l1[10]==0){
+    gamewin("level1b")
+  }
+  if((game1 == "1d" && positions_l1[13]==2 && (positions_l1[14]==0 || positions_l1[14]==2) && positions_l1[15]==0) ){
+
     gamewin("level1b")
   }
 }
@@ -265,25 +341,56 @@ function testgamecompletel2(){
      && positions_l2[8]== 1
   ){
     gamewin("level2a")
-  }
+  } else if(game2 == "2b" 
+  && positions_l2[9]== 2 
+  && positions_l2[10]== 3
+  && positions_l2[12]== 0
+  && positions_l2[14]==2
+  && positions_l2[16]==1
+  && positions_l2[17]== 0
+){
+ gamewin("level2b")
+} else if(game2 == "2c" 
+&& (positions_l2[18]==0 || positions_l2[18]==2)
+&& positions_l2[19]== 3
+&& positions_l2[20]== 2
+&& (positions_l2[22]==1 || positions_l2[22]==3)
+&& (positions_l2[23]==1 || positions_l2[23]==3)
+&& positions_l2[25]==1
+&& positions_l2[26]== 0
+){
+gamewin("level2c")
+} else if(game2 == "2d" 
+&& positions_l2[27]== 3
+&& positions_l2[28]== 2
+&& positions_l2[29]== 3
+&& (positions_l2[30]==1 || positions_l2[30]==3)
+&& (positions_l2[31]==1 || positions_l2[31]==3)
+&& (positions_l2[32]==1 || positions_l2[32]==3)
+&& positions_l2[33]==1
+&& positions_l2[34]== 0
+&& positions_l2[35]== 1
+){
+gamewin("level2d")
+}
 }
 
 function testgamecompletel3(){
-  if(game3 == "3a"
-      && positions_l3[0]==2 
-      && (positions_l3[1]==0 || positions_l3[1]==2)
+  if( game3 == "3a"
+      && positions_l3[1]==2
       && positions_l3[2]==3
-      && positions_l3[4]==0
-      && (positions_l3[6]==1 || positions_l3[6]==3)
-      && positions_l3[7]==2
-      && positions_l3[8]==2
+      && positions_l3[4]==2
+      && positions_l3[5]==0
+      && positions_l3[6]==1 
+      && positions_l3[7]==3
+      && positions_l3[8]==1
       && (positions_l3[9]==0 || positions_l3[9]==2)
-      && positions_l3[10]==0
+      && positions_l3[10]==3
       && (positions_l3[11]==1 || positions_l3[11]==3)
-      && positions_l3[12]==1
+      && (positions_l3[12]==0 || positions_l3[12]==2)
       && (positions_l3[13]==0 || positions_l3[13]==2)
-      && (positions_l3[14]==0 || positions_l3[14]==2)
-      && positions_l3[15]==0
+      && positions_l3[14]==0
+      && positions_l3[15]==1
   ) {
 
     gameobjectsactive()
@@ -293,15 +400,85 @@ function testgamecompletel3(){
     appear(welldonescreen)
   }, 2000);
     
-  }
+  } else
+  if( game3 == "3b"
+  && positions_l3[17]==2
+  && (positions_l3[18]==0 || positions_l3[18]==2)
+  && positions_l3[19]==3
+  && positions_l3[20]==2
+  && positions_l3[21]==0
+  && (positions_l3[23]==1 || positions_l3[23]==3)
+  && positions_l3[24]==1
+  && (positions_l3[25]==0 || positions_l3[25]==2)
+  && positions_l3[26]==3
+  && (positions_l3[27]==1 || positions_l3[27]==3)
+  && (positions_l3[28]==0 || positions_l3[28]==2)
+  && (positions_l3[29]==0 || positions_l3[29]==2)
+  && positions_l3[30]==0
+  && positions_l3[31]==1
+) {
+  gameobjectsactive()
+  gamewin()
 
+setTimeout(() => {
+  appear(welldonescreen)
+}, 2000);
+  
+} else
+if( game3 == "3c"
+
+&& positions_l3[33]==2
+&& positions_l3[34]==3
+&& (positions_l3[37]==1 || positions_l3[37]==3)
+&& (positions_l3[38]==1 || positions_l3[38]==3)
+&& positions_l3[39]==2
+&& (positions_l3[41]==1 || positions_l3[41]==3)
+&& positions_l3[42]==1
+&& positions_l3[43]==0
+&& (positions_l3[44]==0 || positions_l3[44]==2)
+&& positions_l3[45]==0
+) {
+gameobjectsactive()
+gamewin()
+
+setTimeout(() => {
+appear(welldonescreen)
+}, 2000);
+
+} else
+if( game3 == "3d"
+
+&& positions_l3[49]==2
+&& (positions_l3[50]==0 || positions_l3[50]==2)
+&& positions_l3[51]==3
+&& positions_l3[52]==2
+&& positions_l3[53]==0
+&& (positions_l3[55]==1 || positions_l3[55]==3)
+&& positions_l3[56]==1
+&& (positions_l3[57]==0 || positions_l3[57]==2)
+&& positions_l3[58]== 3
+&& (positions_l3[59]==1 || positions_l3[59]==3)
+&& (positions_l3[60]==0 || positions_l3[60]==2)
+&& (positions_l3[61]==0 || positions_l3[61]==2)
+&& positions_l3[62]==0
+&& positions_l3[63]==1
+) {
+gameobjectsactive()
+gamewin()
+
+setTimeout(() => {
+appear(welldonescreen)
+}, 2000);
+
+}
 }
 
 function gamewin(level){
   music.pause() 
+  gameobjectsactive()
 
-  if(level=="level1a" || level=="level1b"){
-    gameobjectsactive()
+  if(level=="level1a" || level=="level1b" || level=="level1c" || level=="level1d"){
+    
   // Set timer for appearance of level 2 button 
   setTimeout(() => {
     appear(continuel2)
@@ -309,8 +486,7 @@ function gamewin(level){
   }, 4000);
   }
 
-  if(level=="level2a" || level=="level2b"){
-    gameobjectsactive()
+  if(level=="level2a" || level=="level2b" || level=="level2c" || level=="level2d"){
   // Set timer for appearance of level 2 button 
   setTimeout(() => {
     appear(continuel3)

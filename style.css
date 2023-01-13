@@ -26,32 +26,92 @@ main {
 }
 
 .start_pos1_1 {
+    top: 210px;
+    left: 180px;
+}
+
+.start_pos1_2 {
     top: 310px;
     left: 180px;
 }
 
 .end_pos1_1 {
+    top: 210px;
+    left: 500px;
+}
+
+.end_pos1_2 {
     top: 310px;
     left: 500px;
 }
 
 .start_pos2_1 {
-    top: 370px;
+    top: 170px;
     left: 120px;
 }
 
 .end_pos2_1 {
+    top: 170px;
+    left: 580px;
+}
+
+.start_pos2_2 {
+    top: 270px;
+    left: 120px;
+}
+
+.end_pos2_2 {
+    top: 270px;
+    left: 580px;
+}
+
+.start_pos2_3 {
+    top: 370px;
+    left: 120px;
+}
+
+.end_pos2_3 {
     top: 370px;
     left: 580px;
 }
 
 .start_pos3_1 {
-    top: 180px;
+    top: 80px;
     left: 40px;
 }
 
 .end_pos3_1 {
+    top: 80px;
+    left: 640px;
+}
+
+.start_pos3_2 {
     top: 180px;
+    left: 40px;
+}
+
+.end_pos3_2 {
+    top: 180px;
+    left: 640px;
+}
+
+.start_pos3_3 {
+    top: 260px;
+    left: 40px;
+}
+
+.end_pos3_3 {
+    top: 260px;
+    left: 640px;
+}
+
+.start_pos3_4 {
+    top: 400px;
+    left: 40px;
+}
+
+.end_pos3_4 {
+    top: 400px;
     left: 640px;
 }
 
@@ -233,14 +293,22 @@ main {
     top: 50%;
     transform: translate(-50%, -50%);
     transform-origin: center center;
-    }
+}
 
-#game1a {
+#game1a, #game2a, #game3a{
     border: 5px solid red;
 }
 
-#game1b {
+#game1b, #game2b, #game3b  {
     border: 5px solid green;
+}
+
+#game1c, #game2c, #game3c  {
+    border: 5px solid yellow;
+}
+
+#game1d, #game2d, #game3d  {
+    border: 5px solid magenta;
 }
 
 .gamegrid1 {
