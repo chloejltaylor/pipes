@@ -29,8 +29,7 @@ el.style.transform = "translate(-50%, -50%) " + "scale(" + scale + ")"
 
 //start game
 
-let titleplaybutton = document.getElementById("titleplaybutton")
-    header = document.getElementById("header")
+let header = document.getElementById("header")
     titlescreen = document.querySelector(".titlescreen")
     welldonescreen = document.querySelector(".welldonescreen")
     maingame = document.querySelector("main")
@@ -53,15 +52,63 @@ let titleplaybutton = document.getElementById("titleplaybutton")
     game1div = gamegrid1[game1Selector]
     game2div = gamegrid2[game2Selector]
     game3div = gamegrid3[game3Selector]
+    gamebackground = document.querySelector(".gamebackground")
+    background = document.querySelector(".background")
     
     video = document.getElementById("videos")
-    start = document.querySelector(".start")
-    end = document.querySelector(".end")
 
 
+// titlescreen.innerHTML = '<video preload="auto" id="video" playsinline class="welldonevideo" autoplay>  <source src="assets/animations/test4x4.mp4" type="video/mp4"></video><span id="titleplaybutton" class="item"></span>'
+
+
+let titleplaybutton = document.getElementById("titleplaybutton")
+
+function removeallbackgrounds() {
+  gamebackground.classList.remove("gamebackground1a")
+  gamebackground.classList.remove("gamebackground1b")
+  gamebackground.classList.remove("gamebackground1c")
+  gamebackground.classList.remove("gamebackground1d")
+  gamebackground.classList.remove("gamebackground2a")
+  gamebackground.classList.remove("gamebackground2b")
+  gamebackground.classList.remove("gamebackground2c")
+  gamebackground.classList.remove("gamebackground2d")
+  gamebackground.classList.remove("gamebackground3a")
+  gamebackground.classList.remove("gamebackground3b")
+  gamebackground.classList.remove("gamebackground3c")
+  gamebackground.classList.remove("gamebackground3d")
+}
+
+
+function selectcorrectbackground1() {
+  removeallbackgrounds()
+  if(game1=="1a"){gamebackground.classList.add("gamebackground1a")}
+  else if(game1=="1b"){gamebackground.classList.add("gamebackground1b")}
+  else if(game1=="1c"){gamebackground.classList.add("gamebackground1c")}
+  else if(game1=="1d"){gamebackground.classList.add("gamebackground1d")}
+}
+
+function selectcorrectbackground2() {
+removeallbackgrounds()
+if(game2=="2a"){gamebackground.classList.add("gamebackground2a")}
+else if(game2=="2b"){gamebackground.classList.add("gamebackground2b")}
+else if(game2=="2c"){gamebackground.classList.add("gamebackground2c")}
+else if(game2=="2d"){gamebackground.classList.add("gamebackground2d")}
+
+}
+
+function selectcorrectbackground3() {
+removeallbackgrounds()
+if(game3=="3a"){gamebackground.classList.add("gamebackground3a")}
+else if(game3=="3b"){gamebackground.classList.add("gamebackground3b")}
+else if(game3=="3c"){gamebackground.classList.add("gamebackground3c")}
+else if(game3=="3d"){gamebackground.classList.add("gamebackground3d")}
+
+}
 
 
 function startgame () {
+  playmusic()
+  selectcorrectbackground1()
   setTimeout(() => {
     appear(header)
     appear(maingame)
@@ -71,7 +118,8 @@ function startgame () {
   }, 500);
 }
 function restartgame () {
-  console.log("restart")
+  
+    background.classList.remove("darkbackground")
     playmusic()
     disappear(game2div)
     disappear(game3div)
@@ -92,36 +140,14 @@ function restartgame () {
     game1div = gamegrid1[game1Selector]
     game2div = gamegrid2[game2Selector]
     game3div = gamegrid3[game3Selector]
+    selectcorrectbackground1()
     appear(game1div)
     setuptiles(tilesl1, positions_l1)
     setuptiles(tilesl2, positions_l2)
     setuptiles(tilesl3, positions_l3)
 
-    gameobjectsidle()
-    start.classList.remove("start_pos3_1")
-    end.classList.remove("end_pos3_1")
-    start.classList.remove("start_pos3_2")
-    end.classList.remove("end_pos3_2")
-    start.classList.remove("start_pos3_3")
-    end.classList.remove("end_pos3_3")
-    start.classList.remove("start_pos3_4")
-    end.classList.remove("end_pos3_4")
+
     
-    if(game1=="1a"){
-      start.classList.add("start_pos1_2")
-      end.classList.add("end_pos1_2")
-    } else if (game1=="1b"){
-      start.classList.add("start_pos1_1")
-      end.classList.add("end_pos1_1")
-    } else if (game1=="1c"){
-      start.classList.add("start_pos1_2")
-      end.classList.add("end_pos1_1")
-    } else if (game1=="1d"){
-      start.classList.add("start_pos1_2")
-      end.classList.add("end_pos1_1")
-    } 
-
-
 }
 
 titleplaybutton.addEventListener("pointerdown",startgame)
@@ -137,27 +163,7 @@ startagainbutton.addEventListener("pointerdown",restartgame)
       appear(game2div)
       disappear(continuel2)
       disappear(video)
-      start.classList.remove("start_pos1_1")
-      end.classList.remove("end_pos1_1")
-      start.classList.remove("start_pos1_2")
-      end.classList.remove("end_pos1_2")
-      start.classList.remove("start_pos1_3")
-      end.classList.remove("end_pos1_3")
-      
-      if(game2=="2a"){
-        start.classList.add("start_pos2_3")
-        end.classList.add("end_pos2_3")
-      } else if (game2=="2b"){
-        start.classList.add("start_pos2_2")
-        end.classList.add("end_pos2_2")
-      } else if (game2=="2c"){
-        start.classList.add("start_pos2_1")
-        end.classList.add("end_pos2_1")
-      } else if (game2=="2d"){
-        start.classList.add("start_pos2_1")
-        end.classList.add("end_pos2_3")
-      } 
-      gameobjectsidle()
+      selectcorrectbackground2()
     }, 100);
 
 
@@ -172,27 +178,7 @@ startagainbutton.addEventListener("pointerdown",restartgame)
     appear(game3div)
     disappear(continuel3)
     disappear(video)
-    start.classList.remove("start_pos2_1")
-    end.classList.remove("end_pos2_1")
-    start.classList.remove("start_pos2_2")
-    end.classList.remove("end_pos2_2")
-    start.classList.remove("start_pos2_3")
-    end.classList.remove("end_pos2_3")
-    
-    if(game3=="3a"){
-      start.classList.add("start_pos3_4")
-      end.classList.add("end_pos3_4")
-    } else if (game3=="3b"){
-      start.classList.add("start_pos3_4")
-      end.classList.add("end_pos3_4")
-    } else if (game3=="3c"){
-      start.classList.add("start_pos3_4")
-      end.classList.add("end_pos3_2")
-    } else if (game3=="3d"){
-      start.classList.add("start_pos3_4")
-      end.classList.add("end_pos3_4")
-    } 
-    gameobjectsidle()
+    selectcorrectbackground3()
   }
 
 // instructions
@@ -210,9 +196,8 @@ function openinstructions() {
 
 
 //sounds
-const incorrect = new Audio("assets/sounds/incorrect.wav")
-const correct = new Audio("assets/sounds/correct.mp3")
-const win = new Audio("assets/sounds/win.wav")
+
+const win = new Audio("assets/sounds/win.mp3")
 const swish = new Audio("assets/sounds/swish.wav")
 
 function playSound(sound){
@@ -291,26 +276,13 @@ setuptiles(tilesl1, positions_l1)
 setuptiles(tilesl2, positions_l2)
 setuptiles(tilesl3, positions_l3)
 
-if(game1=="1a"){
-  start.classList.add("start_pos1_2")
-  end.classList.add("end_pos1_2")
-} else if (game1=="1b"){
-  start.classList.add("start_pos1_1")
-  end.classList.add("end_pos1_1")
-} else if (game1=="1c"){
-  start.classList.add("start_pos1_2")
-  end.classList.add("end_pos1_1")
-} else if (game1=="1d"){
-  start.classList.add("start_pos1_2")
-  end.classList.add("end_pos1_1")
-} 
+
 
 //set up solution
 
 let continuel2 = document.getElementById("continuel2")
 let continuel3 = document.getElementById("continuel3")
-let turbine = document.querySelector(".turbine")
-let lightbulb = document.querySelector(".lightbulb")
+
 
 function testgamecompletel1(){
   if(game1 == "1a" && positions_l1[0]==2 && positions_l1[1]==3 && positions_l1[2]==0 && positions_l1[3]==1){
@@ -320,11 +292,11 @@ function testgamecompletel1(){
     gamewin("level1b")
   }
   if(game1 == "1c" && positions_l1[8]==2 && (positions_l1[9]==0 || positions_l1[9]==2) && positions_l1[10]==0){
-    gamewin("level1b")
+    gamewin("level1c")
   }
   if((game1 == "1d" && positions_l1[13]==2 && (positions_l1[14]==0 || positions_l1[14]==2) && positions_l1[15]==0) ){
 
-    gamewin("level1b")
+    gamewin("level1d")
   }
 }
 
@@ -376,113 +348,136 @@ gamewin("level2d")
 }
 
 function testgamecompletel3(){
-  if( game3 == "3a"
-      && positions_l3[1]==2
-      && positions_l3[2]==3
-      && positions_l3[4]==2
-      && positions_l3[5]==0
-      && positions_l3[6]==1 
-      && positions_l3[7]==3
-      && positions_l3[8]==1
-      && (positions_l3[9]==0 || positions_l3[9]==2)
-      && positions_l3[10]==3
-      && (positions_l3[11]==1 || positions_l3[11]==3)
-      && (positions_l3[12]==0 || positions_l3[12]==2)
-      && (positions_l3[13]==0 || positions_l3[13]==2)
-      && positions_l3[14]==0
-      && positions_l3[15]==1
+  ///DONE
+  if( game3 == "3c"
+      && positions_l3[33]==2
+      && positions_l3[34]==3
+      && positions_l3[36]==2
+      && positions_l3[37]==0
+      && positions_l3[38]==1 
+      && positions_l3[39]==3
+      && positions_l3[40]==1
+      && (positions_l3[41]==0 || positions_l3[41]==2)
+      && positions_l3[42]==3
+      && (positions_l3[43]==1 || positions_l3[43]==3)
+      && (positions_l3[44]==0 || positions_l3[44]==2)
+      && (positions_l3[45]==0 || positions_l3[45]==2)
+      && positions_l3[46]==0
+      && positions_l3[47]==1
   ) {
 
-    gameobjectsactive()
-    gamewin()
+    gamewin("level3c")
 
   setTimeout(() => {
     appear(welldonescreen)
-  }, 2000);
+  }, 9000);
+
+  setTimeout(() => {
+    appear(startagainbutton)
+  }, 10000);
     
   } else
-  if( game3 == "3b"
-  && positions_l3[17]==2
-  && (positions_l3[18]==0 || positions_l3[18]==2)
-  && positions_l3[19]==3
-  && positions_l3[20]==2
-  && positions_l3[21]==0
-  && (positions_l3[23]==1 || positions_l3[23]==3)
-  && positions_l3[24]==1
-  && (positions_l3[25]==0 || positions_l3[25]==2)
-  && positions_l3[26]==3
-  && (positions_l3[27]==1 || positions_l3[27]==3)
-  && (positions_l3[28]==0 || positions_l3[28]==2)
-  && (positions_l3[29]==0 || positions_l3[29]==2)
-  && positions_l3[30]==0
-  && positions_l3[31]==1
+  ////DONE
+  if( game3 == "3a"
+  && positions_l3[1]==2
+  && (positions_l3[2]==0 || positions_l3[2]==2)
+  && positions_l3[3]==3
+  && positions_l3[4]==2
+  && positions_l3[5]==0
+  && (positions_l3[7]==1 || positions_l3[7]==3)
+  && positions_l3[8]==1
+  && (positions_l3[9]==0 || positions_l3[9]==2)
+  && positions_l3[10]==3
+  && (positions_l3[11]==1 || positions_l3[11]==3)
+  && (positions_l3[12]==0 || positions_l3[12]==2)
+  && (positions_l3[13]==0 || positions_l3[13]==2)
+  && positions_l3[14]==0
+  && positions_l3[15]==1
 ) {
-  gameobjectsactive()
-  gamewin()
+  gamewin("level3a")
 
 setTimeout(() => {
   appear(welldonescreen)
-}, 2000);
-  
-} else
-if( game3 == "3c"
+}, 9000);
 
-&& positions_l3[33]==2
-&& positions_l3[34]==3
-&& (positions_l3[37]==1 || positions_l3[37]==3)
-&& (positions_l3[38]==1 || positions_l3[38]==3)
-&& positions_l3[39]==2
-&& (positions_l3[41]==1 || positions_l3[41]==3)
-&& positions_l3[42]==1
-&& positions_l3[43]==0
-&& (positions_l3[44]==0 || positions_l3[44]==2)
-&& positions_l3[45]==0
+setTimeout(() => {
+  appear(startagainbutton)
+}, 10000);
+
+} else
+
+///done
+if( game3 == "3b"
+
+&& positions_l3[17]==2
+&& positions_l3[18]==3
+&& (positions_l3[21]==1 || positions_l3[21]==3)
+&& (positions_l3[22]==1 || positions_l3[22]==3)
+&& positions_l3[23]==2
+&& (positions_l3[25]==1 || positions_l3[25]==3)
+&& positions_l3[26]==1
+&& positions_l3[27]==0
+&& (positions_l3[28]==0 || positions_l3[28]==2)
+&& positions_l3[29]==0
 ) {
-gameobjectsactive()
-gamewin()
+  gamewin("level3b")
 
 setTimeout(() => {
 appear(welldonescreen)
-}, 2000);
+}, 9000);
+setTimeout(() => {
+  appear(startagainbutton)
+}, 10000);
 
 } else
 if( game3 == "3d"
 
-&& positions_l3[49]==2
-&& (positions_l3[50]==0 || positions_l3[50]==2)
-&& positions_l3[51]==3
-&& positions_l3[52]==2
-&& positions_l3[53]==0
-&& (positions_l3[55]==1 || positions_l3[55]==3)
-&& positions_l3[56]==1
-&& (positions_l3[57]==0 || positions_l3[57]==2)
-&& positions_l3[58]== 3
-&& (positions_l3[59]==1 || positions_l3[59]==3)
-&& (positions_l3[60]==0 || positions_l3[60]==2)
-&& (positions_l3[61]==0 || positions_l3[61]==2)
+&& positions_l3[48]==2
+&& (positions_l3[49]==0 || positions_l3[49]==2)
+&& positions_l3[50]==3
+&& (positions_l3[52]==1 || positions_l3[52]==3)
+&& positions_l3[53]==2
+&& positions_l3[54]==0
+&& positions_l3[55]==2
+&& (positions_l3[56]==1 || positions_l3[56]==3)
+&& (positions_l3[57]==1 || positions_l3[57]==3)
+&& positions_l3[58]== 2
+&& positions_l3[59]== 0
+&& positions_l3[60]== 0
+&& positions_l3[61]==1
 && positions_l3[62]==0
-&& positions_l3[63]==1
+
 ) {
-gameobjectsactive()
-gamewin()
+  gamewin("level3d")
 
 setTimeout(() => {
 appear(welldonescreen)
-}, 2000);
+}, 9000);
+
+setTimeout(() => {
+  appear(startagainbutton)
+}, 10000);
+
 
 }
 }
 
 function gamewin(level){
+  console.log("Level: "+ level)
   music.pause() 
-  gameobjectsactive()
+  setTimeout(() => {
+    playSound(win)
+  }, 100);
+  
+  setTimeout(() => {
+    playmusic()
+  }, 2000);
 
   if(level=="level1a" || level=="level1b" || level=="level1c" || level=="level1d"){
     
   // Set timer for appearance of level 2 button 
   setTimeout(() => {
     appear(continuel2)
-    playmusic()
   }, 4000);
   }
 
@@ -493,33 +488,69 @@ function gamewin(level){
     playmusic()
   }, 4000);
   }
+
+  if(level=="level3a" || level=="level3b" || level=="level3c" || level=="level3d"){
+    // Set timer for appearance of level 2 button 
+    setTimeout(() => {
+      background.classList.add("darkbackground")
+    }, 1000);
+    }
   
   setTimeout(() => {
     appear(video)
-  }, 100);
+  }, 1000);
   
-  video.innerHTML = '<video preload="auto" id="video" playsinline class="welldonevideo item" autoplay>  <source src="assets/animations/test.mp4" type="video/mp4"></video>'
+
+  // video.innerHTML = '<img class="welldonevideo item"  src="assets/animations/placeholder.png">'
+// gamebackground.innerHTML = '<video preload="auto" id="video" playsinline class="welldonevideo item" autoplay>  <source src="assets/animations/test.mp4" type="video/mp4"></video>'
+  let videosarray = [
+    '<video preload="auto" id="video" playsinline class="welldonevideo" autoplay>  <source src="assets/animations/1a.mp4" type="video/mp4"></video>',
+    '<video preload="auto" id="video" playsinline class="welldonevideo" autoplay>  <source src="assets/animations/1b.mp4" type="video/mp4"></video>',
+    '<video preload="auto" id="video" playsinline class="welldonevideo" autoplay>  <source src="assets/animations/1c.mp4" type="video/mp4"></video>',
+    '<video preload="auto" id="video" playsinline class="welldonevideo" autoplay>  <source src="assets/animations/1d.mp4" type="video/mp4"></video>',
+    '<video preload="auto" id="video" playsinline class="welldonevideo" autoplay>  <source src="assets/animations/2a.mp4" type="video/mp4"></video>',
+    '<video preload="auto" id="video" playsinline class="welldonevideo" autoplay>  <source src="assets/animations/2b.mp4" type="video/mp4"></video>',
+    '<video preload="auto" id="video" playsinline class="welldonevideo" autoplay>  <source src="assets/animations/2c.mp4" type="video/mp4"></video>',
+    '<video preload="auto" id="video" playsinline class="welldonevideo" autoplay>  <source src="assets/animations/2d.mp4" type="video/mp4"></video>',
+    '<video preload="auto" id="video" playsinline class="welldonevideo" autoplay>  <source src="assets/animations/3a.mp4" type="video/mp4"></video>',
+    '<video preload="auto" id="video" playsinline class="welldonevideo" autoplay>  <source src="assets/animations/3b.mp4" type="video/mp4"></video>',
+    '<video preload="auto" id="video" playsinline class="welldonevideo" autoplay>  <source src="assets/animations/3c.mp4" type="video/mp4"></video>',
+    '<video preload="auto" id="video" playsinline class="welldonevideo" autoplay>  <source src="assets/animations/3d.mp4" type="video/mp4"></video>',
+  ]
+  console.log(level)
+
+
+  if (level=="level1a") {
+    video.innerHTML = videosarray[0]
+  }
+  else if (level=="level1b"){
+    video.innerHTML = videosarray[1]
+  }
+  else if (level=="level1c"){
+    video.innerHTML = videosarray[2]
+  }
+  else if (level=="level1d"){
+    video.innerHTML = videosarray[3]
+  }
+  else if (level=="level2a"){video.innerHTML = videosarray[4]}
+  else if (level=="level2b"){video.innerHTML = videosarray[5]}
+  else if (level=="level2c"){video.innerHTML = videosarray[6]}
+  else if (level=="level2d"){video.innerHTML = videosarray[7]}
+  else if (level=="level3a"){video.innerHTML = videosarray[8]}
+  else if (level=="level3b"){video.innerHTML = videosarray[9]}
+  else if (level=="level3c"){video.innerHTML = videosarray[10]}
+  else if (level=="level3d"){video.innerHTML = videosarray[11]}
+
+  
   
   let vid = document.getElementById('video');
   vid.muted = "muted";
-  playSound(win)
+  
 } 
 
 continuel2.addEventListener("pointerdown", startlevel2)
 continuel3.addEventListener("pointerdown", startlevel3)
 
-function gameobjectsidle(){
-  turbine.classList.add("turbinebefore")
-  turbine.classList.remove("turbineglow")
-  lightbulb.classList.add("lightbulbbefore")
-  lightbulb.classList.remove("lightbulbglow")
-}
 
-function gameobjectsactive(){
-  turbine.classList.remove("turbinebefore")
-  turbine.classList.add("turbineglow")
-  lightbulb.classList.remove("lightbulbbefore")
-  lightbulb.classList.add("lightbulbglow")
-}
 
 

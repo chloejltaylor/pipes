@@ -4,117 +4,17 @@ body {
    
 }
 
+* {
+    touch-action: manipulation;
+}
+
 main {
     z-index: 3000;
 }
 
-.start, .end {
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 80px;
-    width: 120px;
-    position: absolute;
-}
-
-.start {
-    background-image: url("assets/energyitems/start.png");
-}
-
-.end {
-    background-image: url("assets/energyitems/end.png");
-}
-
-.start_pos1_1 {
-    top: 210px;
-    left: 180px;
-}
-
-.start_pos1_2 {
-    top: 310px;
-    left: 180px;
-}
-
-.end_pos1_1 {
-    top: 210px;
-    left: 500px;
-}
-
-.end_pos1_2 {
-    top: 310px;
-    left: 500px;
-}
-
-.start_pos2_1 {
-    top: 170px;
-    left: 120px;
-}
-
-.end_pos2_1 {
-    top: 170px;
-    left: 580px;
-}
-
-.start_pos2_2 {
-    top: 270px;
-    left: 120px;
-}
-
-.end_pos2_2 {
-    top: 270px;
-    left: 580px;
-}
-
-.start_pos2_3 {
-    top: 370px;
-    left: 120px;
-}
-
-.end_pos2_3 {
-    top: 370px;
-    left: 580px;
-}
-
-.start_pos3_1 {
-    top: 80px;
-    left: 40px;
-}
-
-.end_pos3_1 {
-    top: 80px;
-    left: 640px;
-}
-
-.start_pos3_2 {
-    top: 180px;
-    left: 40px;
-}
-
-.end_pos3_2 {
-    top: 180px;
-    left: 640px;
-}
-
-.start_pos3_3 {
-    top: 260px;
-    left: 40px;
-}
-
-.end_pos3_3 {
-    top: 260px;
-    left: 640px;
-}
-
-.start_pos3_4 {
-    top: 400px;
-    left: 40px;
-}
-
-.end_pos3_4 {
-    top: 400px;
-    left: 640px;
-}
-
+/* #video {
+    transform: translate(2px, -50%);
+} */
 
 
 .titlescreen {
@@ -127,14 +27,10 @@ main {
     height: 400px;
     width: 600px;
     top: 300px;
-    left: 400px;
+    left: 700px;
 }
 
-#videos {
-    position: absolute;
-    height: 400px;
-    width: 600px;
-}
+
 
 .welldonescreen {
     z-index: 15000;
@@ -143,10 +39,10 @@ main {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    height: 400px;
-    width: 600px;
+    height: 600px;
+    width: 1400px;
     top: 300px;
-    left: 400px;
+    left: 700px;
 }
 
 .instructionsimage {
@@ -159,7 +55,7 @@ main {
     height: 400px;
     width: 600px;
     top: 300px;
-    left: 400px;
+    left: 700px;
 }
 
 #titleplaybutton {
@@ -178,8 +74,8 @@ main {
     background-image: url("assets/buttons/play.png");
     background-size: contain;
     background-repeat: no-repeat;
-    top: 250px;
-    left: 300px;
+    top: 450px;
+    left: 700px;
 }
 
 #closeinstructionsbutton {
@@ -225,8 +121,8 @@ main {
 
 #continuebuttons{
     position: absolute;
-    top: 500px;
-    left: 400px;
+    top: 560px;
+    left: 700px;
 }
 
 .continuebutton {
@@ -275,18 +171,79 @@ main {
 
 .background {
     position: relative;
-    background: orange;  /* fallback for old browsers */
-    /* background: -webkit-linear-gradient(to bottom, #12162f, #222e59);  Chrome 10-25, Safari 5.1-6 */
-    /* background: linear-gradient(to bottom, #12162f, #222e59); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-image: url("assets/backgrounds/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     height: 100vh;
     overflow: hidden;
 }
 
+.darkbackground {
+    background-image: url("assets/backgrounds/darkbackground.jpg");
+}
+
+.gamebackground1a {
+    background-image: url("assets/backgrounds/background1a.jpg");
+}
+
+.gamebackground1b {
+    background-image: url("assets/backgrounds/background1b.jpg");
+}
+
+.gamebackground1c {
+    background-image: url("assets/backgrounds/background1c.jpg");
+}
+
+.gamebackground1d {
+    background-image: url("assets/backgrounds/background1d.jpg");
+}
+
+.gamebackground2a {
+    background-image: url("assets/backgrounds/background2a.jpg");
+}
+
+.gamebackground2b {
+    background-image: url("assets/backgrounds/background2b.jpg");
+}
+
+.gamebackground2c {
+    background-image: url("assets/backgrounds/background2c.jpg");
+}
+
+.gamebackground2d {
+    background-image: url("assets/backgrounds/background2d.jpg");
+}
+
+.gamebackground3a {
+    background-image: url("assets/backgrounds/background3a.jpg");
+    /* background-image: url("assets/backgrounds/background3test.jpg"); */
+
+}
+
+.gamebackground3b {
+    background-image: url("assets/backgrounds/background3b.jpg");
+    /* background-image: url("assets/backgrounds/background3test.jpg"); */
+
+}
+
+.gamebackground3c {
+    background-image: url("assets/backgrounds/background3c.jpg");
+    /* background-image: url("assets/backgrounds/background3test.jpg"); */
+
+}
+
+.gamebackground3d {
+    background-image: url("assets/backgrounds/background3d.jpg");
+        /* background-image: url("assets/backgrounds/background3test.jpg"); */
+
+}
+
 .inframearea {
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    width: 800px;
+    width: 1400px;
     height: 600px;
     position: absolute;
     left: 50%;
@@ -295,47 +252,32 @@ main {
     transform-origin: center center;
 }
 
-#game1a, #game2a, #game3a{
-    border: 5px solid red;
-}
-
-#game1b, #game2b, #game3b  {
-    border: 5px solid green;
-}
-
-#game1c, #game2c, #game3c  {
-    border: 5px solid yellow;
-}
-
-#game1d, #game2d, #game3d  {
-    border: 5px solid magenta;
-}
 
 .gamegrid1 {
-    height: 240px;
-    width: 240px;
+    height: 480px;
+    width: 480px;
     top: 300px;
-    left: 400px;
+    left: 700px;
     display: grid;
-    grid-template-columns: 120px 120px;
-    grid-template-rows: 120px 120px;
+    grid-template-columns: 240px 240px;
+    grid-template-rows: 240px 240px;
 }
 
 .gamegrid2 {
-    height: 360px;
-    width: 360px;
+    height: 480px;
+    width: 480px;
     top: 300px;
-    left: 400px;
+    left: 700px;
     display: grid;
-    grid-template-columns: 120px 120px 120px;
-    grid-template-rows: 120px 120px 120px;
+    grid-template-columns: 160px 160px 160px;
+    grid-template-rows: 160px 160px 160px;
 }
 
 .gamegrid3 {
     height: 480px;
     width: 480px;
     top: 300px;
-    left: 400px;
+    left: 700px;
     display: grid;
     grid-template-columns: 120px 120px 120px 120px;
     grid-template-rows: 120px 120px 120px 120px;
@@ -361,55 +303,19 @@ main {
     transition: transform 900ms ease;
 }
 
-.turbine {
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 150px;
-    width: 100px;
-    top: 350px;
-    left: 50px;
-}
-
-.turbineglow {
-    background-image: url("assets/energyitems/turbine-glow.png");
-
-}
-
-.turbinebefore {
-    background-image: url("assets/energyitems/turbine.png");
-}
-
-.lightbulb {
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 100px;
-    width: 200px;
-    top: 360px;
-    left: 770px;
-}
-
-.lightbulbglow {
-    background-image: url("assets/energyitems/lightbulb-glow.png");
-
-}
-
-.lightbulbbefore {
-    background-image: url("assets/energyitems/lightbulb.png");
-}
-
-
 
 .welldonevideo {
-    height: 400px;
-    width: 600px;
-    top: 300px;
-    left: 400px;
+    position:absolute;
+    top: 50%;
+    width: 100%;
+    transform: translate(-4px, -50%);
 }
+
+
 
 
 .displaynone {
     display: none;
 }
+
 

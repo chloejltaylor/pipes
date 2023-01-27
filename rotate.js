@@ -241,7 +241,6 @@ function rotatel3_64() {rotate(63,tilesl3,positions_l3)}
 
 
 function rotate(tileno, tilesarrayx, positionsarray){
-    console.log(tileno)
     tilesarrayx[tileno].style.pointerEvents="none"
     tilesarrayx[tileno].classList.remove("rotate90")
     playSound(swish)

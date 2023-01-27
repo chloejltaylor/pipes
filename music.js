@@ -32,6 +32,7 @@ function muteunmute() {
 
 function playmusic() {
   if(ismuted == false){
+    console.log("I hear music")
     music.play()
     music.loop=true 
   } else {
